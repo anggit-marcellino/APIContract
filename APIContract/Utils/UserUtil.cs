@@ -11,7 +11,7 @@ namespace APIContract.Utils
 {
     public class UserUtil
     {
-        public static async Task<User> GetAccountById(ContractDbContext contractDbContext, Guid Id)
+        public static async Task<User> GetUserById(ContractDbContext contractDbContext, Guid Id)
         {
             var query = await contractDbContext.Users
                 .Where(x => x.Id == Id)

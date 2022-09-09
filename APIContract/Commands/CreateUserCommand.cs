@@ -17,7 +17,6 @@ namespace APIContract.Commands
 {
     public class CreateUserCommand : IRequest<UserDto>
     {
-        public Guid Id { get; set; }
 
         public string UserName { get; set; }
 
@@ -34,21 +33,13 @@ namespace APIContract.Commands
         {
             _contractDbContext = contractDbContext;
 
-            RuleFor(x => x.Email)
-                .NotEmpty()
-                .Must(val =>
-                {
-                    User user = _contractDbContext.Users.FirstOrDefault(x => x.Email == val);
-                    return user == null;
-                });
-
             RuleFor(x => x.UserName)
-                .NotEmpty()
-                .Must(val =>
-                {
-                    User user = _contractDbContext.Users.FirstOrDefault(x => x.UserName == val);
-                    return user == null;
-                });
+               .NotEmpty()
+               .Must(val =>
+               {
+                   User user = _contractDbContext.Users.FirstOrDefault(x => x.UserName == val);
+                   return user == null;
+               });
         }
     }
 
