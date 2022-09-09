@@ -19,7 +19,7 @@ namespace APIContract.Utils
 
             if (query is null)
             {
-                throw new NotFoundException("User is not found!");
+                throw new NotFoundException("the username is already used");
             }
 
             return query;
@@ -33,7 +33,7 @@ namespace APIContract.Utils
 
             if (query != null)
             {
-                throw new ConflictException("UserName already exists!");
+                throw new ConflictException("username already exists!");
             }
 
             return false;

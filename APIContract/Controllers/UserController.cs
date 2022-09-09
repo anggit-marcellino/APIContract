@@ -33,7 +33,7 @@ namespace APIContract.Controllers
         {
             var result = await _mediator.Send(new UserGetAllQuery());
             var status = StatusCodes.Status200OK;
-            var response = ResponseFactory<UserDto>.SuccessResponse(status, (UserDto)result);
+            var response = ResponseFactory<List<UserDto>>.SuccessResponse(status, result);
             return new OkObjectResult(response);
         }
 
@@ -43,7 +43,7 @@ namespace APIContract.Controllers
         {
             var result = await _mediator.Send(new UserByIdQuery() { Id = id });
             var status = StatusCodes.Status200OK;
-            var response = ResponseFactory<UserDto>.SuccessResponse(status, (UserDto)result);
+            var response = ResponseFactory<UserDto>.SuccessResponse(status, result);
             return new OkObjectResult(response);
         }
 
@@ -53,7 +53,7 @@ namespace APIContract.Controllers
         {
             var result = await _mediator.Send(request);
             var status = StatusCodes.Status201Created;
-            var response = ResponseFactory<UserDto>.SuccessResponse(status, (UserDto)result);
+            var response = ResponseFactory<UserDto>.SuccessResponse(status, result);
 
             return CreatedAtAction(nameof(GetById), new
             {
@@ -68,7 +68,7 @@ namespace APIContract.Controllers
         {
             var result = await _mediator.Send(request);
             var status = StatusCodes.Status200OK;
-            var response = ResponseFactory<UserDto>.SuccessResponse(status, (UserDto)result);
+            var response = ResponseFactory<UserDto>.SuccessResponse(status, result);
             return new OkObjectResult(response);
         }
 
