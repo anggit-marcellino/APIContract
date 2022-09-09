@@ -13,7 +13,7 @@ using DTO.Contract;
 
 namespace APIContract.Controllers
 {
-    [Route("api/auth/register")]
+    [Route("controller")]
     [ApiController]
     [AllowAnonymous]
     public class UserController : ControllerBase
