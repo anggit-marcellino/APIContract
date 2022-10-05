@@ -35,10 +35,9 @@ namespace APIContract
             services.AddControllers()
 
             .AddJsonOptions(opt =>
-             {
-                 opt.JsonSerializerOptions.PropertyNamingPolicy = null;
-             })
-
+            {
+                opt.JsonSerializerOptions.PropertyNamingPolicy = null;
+            })
             .AddFluentValidation(opt =>
             {
                 opt.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
@@ -46,14 +45,14 @@ namespace APIContract
 
             services.AddEntityFrameworkSqlServer().AddDbContext<ContractDbContext>(opt =>
                 opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
-                x => x.MigrationsAssembly("DomainContract")));                
-                
+                x => x.MigrationsAssembly("DomainContract")));
+
+            services.AddCors();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "APIContract", Version = "v1" });
             });
-
-            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
