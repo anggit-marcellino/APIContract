@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DomainContract.Migrations
 {
     [DbContext(typeof(ContractDbContext))]
-    [Migration("20220907151449_DomainContract")]
+    [Migration("20220922065347_DomainContract")]
     partial class DomainContract
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
