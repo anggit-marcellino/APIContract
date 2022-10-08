@@ -14,7 +14,6 @@ namespace APIContract.Queries
 {
 
     //command request
-    
     public class UserGetAllQuery : IRequest<List<UserDto>> { }
     //Queries handler    
     public class UserGetAllQueryHandler : IRequestHandler<UserGetAllQuery, List<UserDto>>
